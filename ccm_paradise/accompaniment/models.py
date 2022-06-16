@@ -32,7 +32,7 @@ class Chord(models.Model):
 
     pitch = models.ForeignKey('Pitch',
                                   related_name='chord_pitch',
-                                  on_delete=models.CASCADE, unique=True)
+                                  on_delete=models.CASCADE)
 
     def __str__(self):
         return self.music.name +'_' +  self.name + '_코드'
