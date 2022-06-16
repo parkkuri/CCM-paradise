@@ -20,12 +20,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-ktv(!kq30qdyo7u!cv)*jx4+(%e79ktir5=8_0b(-=z8#lf92p'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['13.209.75.129', 'localhost']
 
 
 # Application definition
@@ -80,17 +79,29 @@ WSGI_APPLICATION = 'ccm_paradise.wsgi.application'
 #         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
+def get_secret(secret_name):
+    file = open('/run/secrets/' + secret_name)
+    secret = file.read()
+    secret = secret.rstrip().lstrip()
+    file.close()
+
+    return secret
+
+
+SECRET_KEY = get_secret("SECRET_KEY")
+
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'paradise_local',
-        'USER': 'baggyuli',
-        'PASSWORD': 'paradise',
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
+        'NAME': 'paradisedb',
+        'USER': get_secret('DB_USER'),
+        'PASSWORD': get_secret('DB_PASSWORD'),
+        'HOST': '13.209.75.129',
+        'PORT': 5432,
     }
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
