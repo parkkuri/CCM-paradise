@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['13.209.75.129', 'localhost']
+ALLOWED_HOSTS = ['13.209.75.129', 'localhost' ,'ccm-paradise.com']
 
 
 # Application definition
