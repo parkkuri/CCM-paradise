@@ -59,7 +59,7 @@ class accompantiment_detail(DetailView):
 
         # http://127.0.0.1:8888/musics/1/?pitch_id=1
         # '/musics/1/?pitch_id=1'
-        chord = all_chord.filter(id=self.request.GET['pitch_id']).first()
+        chord = all_chord.filter(pitch_id=self.request.GET['pitch_id']).first()
         context['chord'] = chord
 
         pitch = Pitch.objects.filter(id=self.request.GET['pitch_id']).first()
