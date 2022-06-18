@@ -63,11 +63,11 @@
                             <!-- Blog post-->
                             <div class="card mb-4">
                                 {% if item.album_cover is not None %}
-                                <a href="{{item.get_absolute_url}}"><img class="card-img-top" src="{{item.album_cover}}" /></a>
+                                <a href="{{item.get_absolute_url}}"><img style="width: 413px; height: 350px;" class="card-img-top" src="{{item.album_cover}}" /></a>
 
                                 {% else %}
 
-                                <a href="{{item.get_absolute_url}}"><img class="card-img-top" src="https://images.pexels.com/photos/164922/pexels-photo-164922.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" /></a>
+                                <a href="{{item.get_absolute_url}}"><img style="width: 413px; height: 350px;" class="card-img-top" src="https://images.pexels.com/photos/164922/pexels-photo-164922.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" /></a>
                                 {% endif %}
 
                             <div class="card-body">

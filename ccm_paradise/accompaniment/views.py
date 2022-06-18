@@ -45,15 +45,13 @@ class accompantiment_detail(DetailView):
             woman_chord_pitch_id = None
         else:
 
-            woman_chord_pitch_id = woman_chord_pitch.id
+            woman_chord_pitch_id = woman_chord_pitch.pitch_id
 
         man_chord_pitch = all_chord.filter(man_chord_whether=True).first()
         if man_chord_pitch is None:
             man_chord_pitch_id = None
         else:
-
-
-            man_chord_pitch_id = man_chord_pitch.id
+            man_chord_pitch_id = man_chord_pitch.pitch_id
         context['wonan_chord_pitch_id'] = woman_chord_pitch_id
         context['man_chord_pitch_id'] = man_chord_pitch_id
 

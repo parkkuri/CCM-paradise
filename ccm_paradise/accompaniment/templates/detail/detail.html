@@ -156,19 +156,24 @@
                             <div class="row">
                                 <div class="btn-group" role="group" aria-label="...">
                                   {% if chord.woman_chord_whether %}
-                                      <button type="button" class="btn btn-default btn-info" >여자 키</button>
-                                    {% else %}
-                                    <button type="button" onclick="location.href='{% url 'detail' music.pk %}?pitch_id={{wonan_chord_pitch_id}}'"  class="btn btn-default btn-outline-info" >여자 키</button>
+                                      <button type="button" href="#" class="btn btn-default btn-info" >여자 키</button>
 
+
+                                    {% elif wonan_chord_pitch_id %}
+                                    <button type="button" onclick="location.href='{% url 'detail' music.pk %}?pitch_id={{wonan_chord_pitch_id}}'"  class="btn btn-default btn-outline-info" >여자 키</button>
+                                    {% else %}
 
 
                                     {% endif %}
 
                                     {% if chord.man_chord_whether %}
-                                      <button type="button" class="btn btn-default btn-info" >남자 키</button>
+
+                                      <button type="button" href="#" class="btn btn-default btn-info" >남자 키</button>
+                                    {% elif man_chord_pitch_id %}
+                                    <button type="button" onclick="location.href='{% url 'detail' music.pk %}?pitch_id={{man_chord_pitch_id}}'"  class="btn btn-default btn-outline-info" >남자 키</button>
+
                                     {% else %}
 
-                                    <button type="button" onclick="location.href='{% url 'detail' music.pk %}?pitch_id={{man_chord_pitch_id}}'"  class="btn btn-default btn-outline-info" >남자 키</button>
 
                                     {% endif %}
 
